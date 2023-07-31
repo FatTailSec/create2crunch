@@ -228,6 +228,7 @@ impl Config {
 pub fn cpu(config: Config) -> Result<(), Box<dyn Error>> {
     // (create if necessary) and open a file where found salts will be written
     let file = OpenOptions::new()
+                 .read(true)
                  .append(true)
                  .create(true)
                  .open("efficient_addresses.txt")
@@ -421,6 +422,7 @@ pub fn gpu(config: Config) -> ocl::Result<()> {
 
     // (create if necessary) and open a file where found salts will be written
     let file = OpenOptions::new()
+                 .read(true)
                  .append(true)
                  .create(true)
                  .open("efficient_addresses.txt")
